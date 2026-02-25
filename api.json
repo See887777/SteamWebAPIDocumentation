@@ -31377,6 +31377,102 @@
                 }
             ]
         },
+        "GetProjectStatus": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "request_all",
+                    "type": "CMsgSteamLearn_ProjectStatus_Request_RequestAll",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "timestamp_start",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "timestamp_end",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "request_specific",
+                    "type": "CMsgSteamLearn_ProjectStatus_Request_RequestSpecific",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "project_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "published_version",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "timestamp_start",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "timestamp_end",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "request_train",
+                    "type": "CMsgSteamLearn_ProjectStatus_Request_RequestTrain",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "project_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "published_version",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "fetch_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "train_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
         "GetSnapshotStatus": {
             "_type": "undocumented",
             "version": 1,
