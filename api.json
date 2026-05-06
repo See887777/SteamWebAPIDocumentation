@@ -6011,6 +6011,36 @@
                 }
             ]
         },
+        "GetDailyModerationStatistics": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "rtime_start_date",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "rtime_end_date",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "subject_type",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                }
+            ]
+        },
         "GetModeratorActivity": {
             "_type": "undocumented",
             "version": 1,
@@ -6527,6 +6557,12 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "name": "owner_dispute_details",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         },
