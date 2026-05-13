@@ -6138,6 +6138,24 @@
                 }
             ]
         },
+        "GetReporterCooldown": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "steamid",
+                    "type": "fixed64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "GetReportsSubmittedByUser": {
             "_type": "undocumented",
             "version": 1,
@@ -6483,6 +6501,31 @@
                 }
             ]
         },
+        "UpdateReporterCooldown": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "steamid",
+                    "type": "fixed64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "rtime_cooldown_ends",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "UpdateSubject": {
             "_type": "undocumented",
             "version": 1,
@@ -6623,6 +6666,91 @@
         }
     },
     "IContentServerConfigService": {
+        "AllocateSteamCacheNode": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "provider",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "host_name",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "name",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "GetSteamCacheConfig": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "cache_id",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "GetSteamCacheConfigHistory": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "cache_id",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "max_results",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "GetSteamCacheNames": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                }
+            ]
+        },
         "GetSteamCacheNodeParams": {
             "version": 1,
             "httpmethod": "GET",
@@ -6755,6 +6883,111 @@
                     "type": "uint32",
                     "optional": false,
                     "description": "What is the percent utilization of the busiest transit link?"
+                }
+            ]
+        },
+        "UpdateSteamCacheConfig": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "cache_id",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "change_notes",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "config",
+                    "type": "CContentServerConfig_SteamCacheConfig",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "cache_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "is_enabled",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "host_name",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "provider",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "cell_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "api_key_primary",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "api_key_secondary",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "config_json",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "ip_filter_list",
+                            "type": "string",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "omit_history_entry",
+                    "type": "bool",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         }
@@ -9547,6 +9780,99 @@
                     "type": "string",
                     "optional": false,
                     "description": "The language to use when loading item display data"
+                }
+            ]
+        },
+        "SendGift": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "steamid_target",
+                    "type": "fixed64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "appid",
+                    "type": "uint32",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "item_to_give",
+                    "type": "CEcon_Asset",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "appid",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "contextid",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "assetid",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "classid",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "instanceid",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "currencyid",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "amount",
+                            "type": "int64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "missing",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "est_usd",
+                            "type": "int64",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "webcookie",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         }
@@ -26912,38 +27238,8 @@
                                             "description": ""
                                         },
                                         {
-                                            "name": "sequence_table",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_table_count",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sort_sequence",
-                                            "type": "bool",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_min_length",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
                                             "name": "table_full_sample",
                                             "type": "bool",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_prefix_frequency",
-                                            "type": "float",
                                             "optional": true,
                                             "description": ""
                                         },
@@ -27234,96 +27530,6 @@
                                                 {
                                                     "name": "label_smoothing",
                                                     "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "conditional_extract",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "extract_filter_type",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                },
-                                                {
-                                                    "name": "extract_weight_type",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                },
-                                                {
-                                                    "name": "filter_info",
-                                                    "type": "CMsgSteamLearnModelNodeConditionalExtract_FilterInfo",
-                                                    "optional": true,
-                                                    "description": "",
-                                                    "extra": [
-                                                        {
-                                                            "name": "appid_release_recency_months",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_publisher_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_featured_tag_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_theme_tag_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "weight_info",
-                                                    "type": "CMsgSteamLearnModelNodeConditionalExtract_WeightInfo",
-                                                    "optional": true,
-                                                    "description": "",
-                                                    "extra": [
-                                                        {
-                                                            "name": "appid_release_recency_bias",
-                                                            "type": "float",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "input_number",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "input_strength",
-                                                            "type": "float",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "compact_table",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "extracted_compact_table",
-                                                    "type": "string",
                                                     "optional": true,
                                                     "description": ""
                                                 }
@@ -27662,26 +27868,6 @@
                                             ]
                                         },
                                         {
-                                            "name": "max_pooling_1d",
-                                            "type": "CMsgSteamLearnModelNodeMaxPooling1D",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "pool_size",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "strides",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
                                             "name": "flatten",
                                             "type": "CMsgSteamLearnModelNodeFlatten",
                                             "optional": true,
@@ -27692,44 +27878,6 @@
                                             "type": "CMsgSteamLearnModelNodeGlobalMaxPooling1D",
                                             "optional": true,
                                             "description": ""
-                                        },
-                                        {
-                                            "name": "transformer",
-                                            "type": "CMsgSteamLearnModelNodeTransformer",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "num_heads",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "feedforward_size",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "dropout_pct",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "num_internal_blocks",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "regularization",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                }
-                                            ]
                                         },
                                         {
                                             "name": "external_embedding",
@@ -27790,64 +27938,6 @@
                                                 {
                                                     "name": "width",
                                                     "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "sequence_split",
-                                            "type": "CMsgSteamLearnModelNodeSequenceSplit",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "head_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "mid_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "tail_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "sequence_table_name",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "compact_table_name",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "weighted_average",
-                                            "type": "CMsgSteamLearnModelNodeWeightedAverage",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "axis",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "use_weights",
-                                                    "type": "bool",
                                                     "optional": true,
                                                     "description": ""
                                                 }
@@ -28708,38 +28798,8 @@
                                             "description": ""
                                         },
                                         {
-                                            "name": "sequence_table",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_table_count",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sort_sequence",
-                                            "type": "bool",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_min_length",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
                                             "name": "table_full_sample",
                                             "type": "bool",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_prefix_frequency",
-                                            "type": "float",
                                             "optional": true,
                                             "description": ""
                                         },
@@ -29030,96 +29090,6 @@
                                                 {
                                                     "name": "label_smoothing",
                                                     "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "conditional_extract",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "extract_filter_type",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                },
-                                                {
-                                                    "name": "extract_weight_type",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                },
-                                                {
-                                                    "name": "filter_info",
-                                                    "type": "CMsgSteamLearnModelNodeConditionalExtract_FilterInfo",
-                                                    "optional": true,
-                                                    "description": "",
-                                                    "extra": [
-                                                        {
-                                                            "name": "appid_release_recency_months",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_publisher_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_featured_tag_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "appid_theme_tag_id",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "weight_info",
-                                                    "type": "CMsgSteamLearnModelNodeConditionalExtract_WeightInfo",
-                                                    "optional": true,
-                                                    "description": "",
-                                                    "extra": [
-                                                        {
-                                                            "name": "appid_release_recency_bias",
-                                                            "type": "float",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "input_number",
-                                                            "type": "uint32",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        },
-                                                        {
-                                                            "name": "input_strength",
-                                                            "type": "float",
-                                                            "optional": true,
-                                                            "description": ""
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "name": "compact_table",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "extracted_compact_table",
-                                                    "type": "string",
                                                     "optional": true,
                                                     "description": ""
                                                 }
@@ -29458,26 +29428,6 @@
                                             ]
                                         },
                                         {
-                                            "name": "max_pooling_1d",
-                                            "type": "CMsgSteamLearnModelNodeMaxPooling1D",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "pool_size",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "strides",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
                                             "name": "flatten",
                                             "type": "CMsgSteamLearnModelNodeFlatten",
                                             "optional": true,
@@ -29488,44 +29438,6 @@
                                             "type": "CMsgSteamLearnModelNodeGlobalMaxPooling1D",
                                             "optional": true,
                                             "description": ""
-                                        },
-                                        {
-                                            "name": "transformer",
-                                            "type": "CMsgSteamLearnModelNodeTransformer",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "num_heads",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "feedforward_size",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "dropout_pct",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "num_internal_blocks",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "regularization",
-                                                    "type": "int32",
-                                                    "optional": true,
-                                                    "description": "enum"
-                                                }
-                                            ]
                                         },
                                         {
                                             "name": "external_embedding",
@@ -29586,64 +29498,6 @@
                                                 {
                                                     "name": "width",
                                                     "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "sequence_split",
-                                            "type": "CMsgSteamLearnModelNodeSequenceSplit",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "head_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "mid_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "tail_split_chance",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "sequence_table_name",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "compact_table_name",
-                                                    "type": "string",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "weighted_average",
-                                            "type": "CMsgSteamLearnModelNodeWeightedAverage",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "axis",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "use_weights",
-                                                    "type": "bool",
                                                     "optional": true,
                                                     "description": ""
                                                 }
@@ -30531,38 +30385,8 @@
                                     "description": ""
                                 },
                                 {
-                                    "name": "sequence_table",
-                                    "type": "string",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_table_count",
-                                    "type": "uint32",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sort_sequence",
-                                    "type": "bool",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_min_length",
-                                    "type": "uint32",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
                                     "name": "table_full_sample",
                                     "type": "bool",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_prefix_frequency",
-                                    "type": "float",
                                     "optional": true,
                                     "description": ""
                                 },
@@ -30853,96 +30677,6 @@
                                         {
                                             "name": "label_smoothing",
                                             "type": "float",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "conditional_extract",
-                                    "type": "CMsgSteamLearnModelNodeConditionalExtract",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "extract_filter_type",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        },
-                                        {
-                                            "name": "extract_weight_type",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        },
-                                        {
-                                            "name": "filter_info",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract_FilterInfo",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "appid_release_recency_months",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_publisher_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_featured_tag_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_theme_tag_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "weight_info",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract_WeightInfo",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "appid_release_recency_bias",
-                                                    "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "input_number",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "input_strength",
-                                                    "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "compact_table",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "extracted_compact_table",
-                                            "type": "string",
                                             "optional": true,
                                             "description": ""
                                         }
@@ -31281,26 +31015,6 @@
                                     ]
                                 },
                                 {
-                                    "name": "max_pooling_1d",
-                                    "type": "CMsgSteamLearnModelNodeMaxPooling1D",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "pool_size",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "strides",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
                                     "name": "flatten",
                                     "type": "CMsgSteamLearnModelNodeFlatten",
                                     "optional": true,
@@ -31311,44 +31025,6 @@
                                     "type": "CMsgSteamLearnModelNodeGlobalMaxPooling1D",
                                     "optional": true,
                                     "description": ""
-                                },
-                                {
-                                    "name": "transformer",
-                                    "type": "CMsgSteamLearnModelNodeTransformer",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "num_heads",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "feedforward_size",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "dropout_pct",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "num_internal_blocks",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "regularization",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        }
-                                    ]
                                 },
                                 {
                                     "name": "external_embedding",
@@ -31409,64 +31085,6 @@
                                         {
                                             "name": "width",
                                             "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "sequence_split",
-                                    "type": "CMsgSteamLearnModelNodeSequenceSplit",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "head_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "mid_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "tail_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_table_name",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "compact_table_name",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "weighted_average",
-                                    "type": "CMsgSteamLearnModelNodeWeightedAverage",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "axis",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "use_weights",
-                                            "type": "bool",
                                             "optional": true,
                                             "description": ""
                                         }
@@ -33799,38 +33417,8 @@
                                     "description": ""
                                 },
                                 {
-                                    "name": "sequence_table",
-                                    "type": "string",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_table_count",
-                                    "type": "uint32",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sort_sequence",
-                                    "type": "bool",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_min_length",
-                                    "type": "uint32",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
                                     "name": "table_full_sample",
                                     "type": "bool",
-                                    "optional": true,
-                                    "description": ""
-                                },
-                                {
-                                    "name": "sequence_prefix_frequency",
-                                    "type": "float",
                                     "optional": true,
                                     "description": ""
                                 },
@@ -34121,96 +33709,6 @@
                                         {
                                             "name": "label_smoothing",
                                             "type": "float",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "conditional_extract",
-                                    "type": "CMsgSteamLearnModelNodeConditionalExtract",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "extract_filter_type",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        },
-                                        {
-                                            "name": "extract_weight_type",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        },
-                                        {
-                                            "name": "filter_info",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract_FilterInfo",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "appid_release_recency_months",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_publisher_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_featured_tag_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "appid_theme_tag_id",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "weight_info",
-                                            "type": "CMsgSteamLearnModelNodeConditionalExtract_WeightInfo",
-                                            "optional": true,
-                                            "description": "",
-                                            "extra": [
-                                                {
-                                                    "name": "appid_release_recency_bias",
-                                                    "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "input_number",
-                                                    "type": "uint32",
-                                                    "optional": true,
-                                                    "description": ""
-                                                },
-                                                {
-                                                    "name": "input_strength",
-                                                    "type": "float",
-                                                    "optional": true,
-                                                    "description": ""
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "name": "compact_table",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "extracted_compact_table",
-                                            "type": "string",
                                             "optional": true,
                                             "description": ""
                                         }
@@ -34549,26 +34047,6 @@
                                     ]
                                 },
                                 {
-                                    "name": "max_pooling_1d",
-                                    "type": "CMsgSteamLearnModelNodeMaxPooling1D",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "pool_size",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "strides",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
                                     "name": "flatten",
                                     "type": "CMsgSteamLearnModelNodeFlatten",
                                     "optional": true,
@@ -34579,44 +34057,6 @@
                                     "type": "CMsgSteamLearnModelNodeGlobalMaxPooling1D",
                                     "optional": true,
                                     "description": ""
-                                },
-                                {
-                                    "name": "transformer",
-                                    "type": "CMsgSteamLearnModelNodeTransformer",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "num_heads",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "feedforward_size",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "dropout_pct",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "num_internal_blocks",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "regularization",
-                                            "type": "int32",
-                                            "optional": true,
-                                            "description": "enum"
-                                        }
-                                    ]
                                 },
                                 {
                                     "name": "external_embedding",
@@ -34677,64 +34117,6 @@
                                         {
                                             "name": "width",
                                             "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "sequence_split",
-                                    "type": "CMsgSteamLearnModelNodeSequenceSplit",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "head_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "mid_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "tail_split_chance",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "sequence_table_name",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "compact_table_name",
-                                            "type": "string",
-                                            "optional": true,
-                                            "description": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "weighted_average",
-                                    "type": "CMsgSteamLearnModelNodeWeightedAverage",
-                                    "optional": true,
-                                    "description": "",
-                                    "extra": [
-                                        {
-                                            "name": "axis",
-                                            "type": "uint32",
-                                            "optional": true,
-                                            "description": ""
-                                        },
-                                        {
-                                            "name": "use_weights",
-                                            "type": "bool",
                                             "optional": true,
                                             "description": ""
                                         }
