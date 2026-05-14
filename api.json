@@ -18382,6 +18382,12 @@
                     "type": "string",
                     "optional": true,
                     "description": "Lowercase, language shortnames"
+                },
+                {
+                    "name": "hash_only",
+                    "type": "bool",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         },
