@@ -2598,6 +2598,7 @@
                         "ToSViolation",
                         "Miscategorized",
                         "BypassingProfanityFilter",
+                        "BulkDeletion",
                         "MAX"
                     ]
                 },
@@ -3173,6 +3174,12 @@
                             "type": "uint32",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -3227,6 +3234,12 @@
                         {
                             "name": "hubcategoryid",
                             "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
                             "optional": true,
                             "description": ""
                         }
@@ -3380,6 +3393,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -5682,6 +5707,7 @@
                         "ToSViolation",
                         "Miscategorized",
                         "BypassingProfanityFilter",
+                        "BulkDeletion",
                         "MAX"
                     ]
                 },
@@ -5888,6 +5914,7 @@
                         "ToSViolation",
                         "Miscategorized",
                         "BypassingProfanityFilter",
+                        "BulkDeletion",
                         "MAX"
                     ]
                 },
@@ -12132,6 +12159,7 @@
                         "ToSViolation",
                         "Miscategorized",
                         "BypassingProfanityFilter",
+                        "BulkDeletion",
                         "MAX"
                     ]
                 },
@@ -14635,7 +14663,8 @@
                                 "NewDLC",
                                 "FreeWeekend",
                                 "SalePages",
-                                "PlaytestAvailable"
+                                "PlaytestAvailable",
+                                "NewGame"
                             ]
                         },
                         {
@@ -14904,7 +14933,8 @@
                         "NewDLC",
                         "FreeWeekend",
                         "SalePages",
-                        "PlaytestAvailable"
+                        "PlaytestAvailable",
+                        "NewGame"
                     ]
                 },
                 {
@@ -15102,6 +15132,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -15257,6 +15299,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -15409,6 +15463,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -15684,6 +15750,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -15969,7 +16047,8 @@
                                 "NewDLC",
                                 "FreeWeekend",
                                 "SalePages",
-                                "PlaytestAvailable"
+                                "PlaytestAvailable",
+                                "NewGame"
                             ]
                         },
                         {
@@ -18171,6 +18250,12 @@
                             "type": "uint32",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -18625,6 +18710,12 @@
                                     "type": "uint32",
                                     "optional": true,
                                     "description": ""
+                                },
+                                {
+                                    "name": "salepagegid",
+                                    "type": "fixed64",
+                                    "optional": true,
+                                    "description": ""
                                 }
                             ]
                         },
@@ -18758,6 +18849,18 @@
                                 },
                                 {
                                     "name": "include_links",
+                                    "type": "bool",
+                                    "optional": true,
+                                    "description": ""
+                                },
+                                {
+                                    "name": "include_extra_details",
+                                    "type": "bool",
+                                    "optional": true,
+                                    "description": ""
+                                },
+                                {
+                                    "name": "include_best_purchase_option",
                                     "type": "bool",
                                     "optional": true,
                                     "description": ""
@@ -22385,6 +22488,12 @@
                     "type": "string",
                     "optional": true,
                     "description": "If this represents a game, this is the URL to that game's page."
+                },
+                {
+                    "name": "language",
+                    "type": "int32",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         },
@@ -22908,6 +23017,18 @@
                     "type": "int32",
                     "optional": true,
                     "description": "If setting title & description, what language to set"
+                },
+                {
+                    "name": "collectiontype",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "update_tags",
+                    "type": "bool",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         },
@@ -25439,6 +25560,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -25617,6 +25750,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -25762,6 +25907,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -39477,6 +39634,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -39543,6 +39712,12 @@
                         {
                             "name": "hubcategoryid",
                             "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
                             "optional": true,
                             "description": ""
                         }
@@ -39873,6 +40048,12 @@
                             "type": "uint32",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -40149,6 +40330,12 @@
                             "type": "uint32",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 },
@@ -40282,6 +40469,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -40744,6 +40943,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -40892,6 +41103,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 },
@@ -40978,6 +41201,12 @@
                         {
                             "name": "hubcategoryid",
                             "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
                             "optional": true,
                             "description": ""
                         }
@@ -41546,6 +41775,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 },
@@ -41588,6 +41829,12 @@
                         {
                             "name": "hubcategoryid",
                             "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "salepagegid",
+                            "type": "fixed64",
                             "optional": true,
                             "description": ""
                         }
@@ -42568,6 +42815,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 },
@@ -43126,6 +43385,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -43774,6 +44045,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -44799,6 +45082,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
@@ -45853,6 +46148,18 @@
                             "type": "bool",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 },
@@ -46397,6 +46704,18 @@
                         },
                         {
                             "name": "include_links",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_extra_details",
+                            "type": "bool",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "include_best_purchase_option",
                             "type": "bool",
                             "optional": true,
                             "description": ""
