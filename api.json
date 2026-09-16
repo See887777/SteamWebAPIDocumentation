@@ -369,6 +369,27 @@
             ]
         }
     },
+    "IAccountHardwareService": {
+        "GetSavedHardwareList": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "steamid",
+                    "type": "fixed64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        }
+    },
     "IAccountPrivacyService": {
         "GetCookiePreferences": {
             "_type": "undocumented",
@@ -6394,6 +6415,43 @@
                 }
             ]
         },
+        "EscalateSubjectByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "new_level",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "reason",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "note",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "GetAuditLog": {
             "_type": "undocumented",
             "version": 1,
@@ -6419,6 +6477,24 @@
                 },
                 {
                     "name": "subject_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "GetAuditLogByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
                     "type": "uint64",
                     "optional": true,
                     "description": ""
@@ -6647,6 +6723,128 @@
                     "type": "uint64",
                     "optional": true,
                     "description": ""
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "GetReportedContent": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "coordinates",
+                    "type": "ReportedContentCoordinates",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "subject_type",
+                            "type": "int32",
+                            "optional": true,
+                            "description": "enum"
+                        },
+                        {
+                            "name": "steamid",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "forum",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "topic",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "comment",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "comment_thread_id",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "sender_account_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "chat_message_rtime",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "chat_message_ordinal",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "chat_group_id",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "chat_room_id",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "receiver_account_id",
+                            "type": "uint32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "published_file_id",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        "GetReportedContentByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
                 }
             ]
         },
@@ -6747,6 +6945,31 @@
                 }
             ]
         },
+        "OwnerDisputeModeration": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "details",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "ReleaseClaimed": {
             "_type": "undocumented",
             "version": 1,
@@ -6837,6 +7060,12 @@
                             "type": "uint64",
                             "optional": true,
                             "description": ""
+                        },
+                        {
+                            "name": "reported_content_id",
+                            "type": "uint64",
+                            "optional": true,
+                            "description": ""
                         }
                     ]
                 }
@@ -6868,6 +7097,81 @@
                 {
                     "name": "dispute_details",
                     "type": "string",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "ResolveByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "reason",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "note",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "resolution",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "resolved_by_automation",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "sanctions_applied[0]",
+                    "type": "ContentReportSubjectSanction[]",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "sanction",
+                            "type": "int32",
+                            "optional": true,
+                            "description": "enum"
+                        },
+                        {
+                            "name": "days",
+                            "type": "int32",
+                            "optional": true,
+                            "description": ""
+                        },
+                        {
+                            "name": "escalate_to",
+                            "type": "int32",
+                            "optional": true,
+                            "description": "enum"
+                        }
+                    ]
+                },
+                {
+                    "name": "skip_lock",
+                    "type": "bool",
                     "optional": true,
                     "description": ""
                 }
@@ -7167,6 +7471,25 @@
                 }
             ]
         },
+        "SustainModerationByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "UpdateReporterCooldown": {
             "_type": "undocumented",
             "version": 1,
@@ -7287,6 +7610,77 @@
                 }
             ]
         },
+        "UpdateSubjectByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "csam_status",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "terrorism_status",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "credible_threat_of_violence_status",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "additional_subject_data",
+                    "type": "AdditionalSubjectData",
+                    "optional": true,
+                    "description": "",
+                    "extra": [
+                        {
+                            "name": "data[0]",
+                            "type": "AdditionalSubjectData_DataEntry[]",
+                            "optional": true,
+                            "description": "",
+                            "extra": [
+                                {
+                                    "name": "key",
+                                    "type": "string",
+                                    "optional": true,
+                                    "description": ""
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "string",
+                                    "optional": true,
+                                    "description": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "owner_dispute_details",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
         "UpdateSubjectGroup": {
             "_type": "undocumented",
             "version": 1,
@@ -7371,6 +7765,49 @@
                 },
                 {
                     "name": "subject_id",
+                    "type": "uint64",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "action",
+                    "type": "int32",
+                    "optional": true,
+                    "description": "enum"
+                },
+                {
+                    "name": "automated_action",
+                    "type": "bool",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "additional_json_data",
+                    "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "actor_steamid",
+                    "type": "fixed64",
+                    "optional": true,
+                    "description": ""
+                }
+            ]
+        },
+        "WriteToAuditLogByID": {
+            "_type": "undocumented",
+            "version": 1,
+            "httpmethod": "POST",
+            "parameters": [
+                {
+                    "name": "key",
+                    "type": "string",
+                    "optional": false,
+                    "description": "Access key"
+                },
+                {
+                    "name": "reported_content_id",
                     "type": "uint64",
                     "optional": true,
                     "description": ""
@@ -11782,6 +12219,12 @@
                 {
                     "name": "note",
                     "type": "string",
+                    "optional": true,
+                    "description": ""
+                },
+                {
+                    "name": "skip_lock",
+                    "type": "bool",
                     "optional": true,
                     "description": ""
                 }
@@ -22037,6 +22480,12 @@
                     "description": "Admin tool is doing a query, return hidden items"
                 },
                 {
+                    "name": "excluded_apps_with_content_descriptors",
+                    "type": "{enum}",
+                    "optional": true,
+                    "description": "Filter out items for apps that have these content descriptors."
+                },
+                {
                     "name": "totalonly",
                     "type": "bool",
                     "optional": true,
@@ -22270,6 +22719,12 @@
                     "type": "bool",
                     "optional": false,
                     "description": "Admin tool is doing a query, return hidden items"
+                },
+                {
+                    "name": "excluded_apps_with_content_descriptors",
+                    "type": "{enum}",
+                    "optional": true,
+                    "description": "Filter out items for apps that have these content descriptors."
                 },
                 {
                     "name": "totalonly",
@@ -29362,7 +29817,21 @@
                                             "name": "bert",
                                             "type": "CMsgSteamLearnModelNodeBert",
                                             "optional": true,
-                                            "description": ""
+                                            "description": "",
+                                            "extra": [
+                                                {
+                                                    "name": "bert_model",
+                                                    "type": "int32",
+                                                    "optional": true,
+                                                    "description": "enum"
+                                                },
+                                                {
+                                                    "name": "sequence_length",
+                                                    "type": "uint32",
+                                                    "optional": true,
+                                                    "description": ""
+                                                }
+                                            ]
                                         },
                                         {
                                             "name": "bert_tokenizer",
@@ -30922,7 +31391,21 @@
                                             "name": "bert",
                                             "type": "CMsgSteamLearnModelNodeBert",
                                             "optional": true,
-                                            "description": ""
+                                            "description": "",
+                                            "extra": [
+                                                {
+                                                    "name": "bert_model",
+                                                    "type": "int32",
+                                                    "optional": true,
+                                                    "description": "enum"
+                                                },
+                                                {
+                                                    "name": "sequence_length",
+                                                    "type": "uint32",
+                                                    "optional": true,
+                                                    "description": ""
+                                                }
+                                            ]
                                         },
                                         {
                                             "name": "bert_tokenizer",
@@ -32509,7 +32992,21 @@
                                     "name": "bert",
                                     "type": "CMsgSteamLearnModelNodeBert",
                                     "optional": true,
-                                    "description": ""
+                                    "description": "",
+                                    "extra": [
+                                        {
+                                            "name": "bert_model",
+                                            "type": "int32",
+                                            "optional": true,
+                                            "description": "enum"
+                                        },
+                                        {
+                                            "name": "sequence_length",
+                                            "type": "uint32",
+                                            "optional": true,
+                                            "description": ""
+                                        }
+                                    ]
                                 },
                                 {
                                     "name": "bert_tokenizer",
@@ -35541,7 +36038,21 @@
                                     "name": "bert",
                                     "type": "CMsgSteamLearnModelNodeBert",
                                     "optional": true,
-                                    "description": ""
+                                    "description": "",
+                                    "extra": [
+                                        {
+                                            "name": "bert_model",
+                                            "type": "int32",
+                                            "optional": true,
+                                            "description": "enum"
+                                        },
+                                        {
+                                            "name": "sequence_length",
+                                            "type": "uint32",
+                                            "optional": true,
+                                            "description": ""
+                                        }
+                                    ]
                                 },
                                 {
                                     "name": "bert_tokenizer",
